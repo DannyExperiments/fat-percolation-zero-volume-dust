@@ -1,0 +1,88 @@
+\documentclass[11pt]{amsart}
+\usepackage[T1]{fontenc}
+\usepackage[margin=.77in,top=.70in,bottom=.70in]{geometry}
+\usepackage{amssymb}
+\DeclareFontShape{OMX}{cmex}{m}{n}{<->cmex10}{}
+\DeclareMathSizes{8}{8}{8}{8}
+\DeclareMathSizes{9}{9}{8}{8}
+\DeclareMathSizes{10.95}{10.95}{8}{8}
+\usepackage[hidelinks]{hyperref}
+\hypersetup{pdftitle={The dust in fat fractal percolation has zero volume}}
+\newtheorem{theorem}{Theorem}
+\title{The dust in fat fractal percolation has zero volume}
+\date{27 November 2026}
+\begin{document}
+\begin{abstract}
+In independent level-dependent fractal percolation, suppose the retention probabilities have positive product. In dimension at least two, almost every point of the limit set belongs to a nontrivial connected component, almost surely. The proof uses a summable bound for failure of a recursive cube test, followed by a deterministic shared-face intersection argument. This answers Open Problem~1.10 of Broman et al. and does not require monotone probabilities.
+\end{abstract}
+\maketitle
+
+\section{Model and statement}
+Start with the closed unit cube in dimension $d\ge2$. At each level $n\ge1$, subdivide each retained cube into $N^d$ equal closed subcubes with $N\ge2$, and retain each with probability $p_n\in(0,1]$, independently. Let $F$ be the decreasing intersection of the retained unions. The dust $F^{\mathrm d}$ consists of points whose connected component in $F$ is a singleton. All volumes use $d$-dimensional Lebesgue measure~$\lambda$.
+
+\begin{theorem}
+If $\prod_{n\ge1}p_n>0$, then $\lambda(F^{\mathrm d})=0$ almost surely.
+\end{theorem}
+
+Broman et al.~\cite[Theorems~1.7--1.9]{B} prove positive volume on nonextinction and a dichotomy under nondecreasing probabilities. They establish the zero-dust branch if $\prod_n p_n^{N^{dn}}>0$ and ask in Open Problem~1.10 whether the other branch can occur. Kolossv\'ary and Troscheit~\cite[Question~7.3]{KT} repeat the question. Under those assumptions the theorem gives the zero-dust branch on nonextinction, and hence the union of non-singleton components has positive volume. Our hypotheses also allow nonmonotone $p_n$.
+
+\section{A summable defect bound}
+Assign each labeled cube an independent Bernoulli mark with the parameter at its level, including cubes whose ancestors are not marked. A cube is retained if and only if it and every ancestor are marked. Labeled neighboring cubes have disjoint mark variables, even when their geometric boundaries meet. Write $q_n=1-p_n$. Because $q_n\le-\log p_n$, the sequence $(q_n)$ is summable.
+
+Use levels $2j$, $j\ge1$, as block levels. The block children of a cube are its grandchildren, arranged in a grid with side length $L=N^2\ge4$. The local test at level $2j$ requires the cube and its $N^d$ immediate children to be marked. Its failure probability is at most $r_j=q_{2j}+N^d q_{2j+1}$. The sequence $(r_j)$ is summable.
+
+Fix a terminal block level $m$. A cube there is good if it passes the local test. Working backwards, call a cube good if it passes its test and has at most one block child that fails the recursive goodness test. Increasing $m$ makes goodness more restrictive. Define a cube to be good if it is good for every finite terminal level. It then has at most one bad block child. Indeed, if two children fail, they both fail at some common finite terminal level and the parent fails there as well.
+
+Let $b_j^{(m)}$ be the probability that a level-$2j$ cube fails at terminal level $m$, and let $C=\binom{L^d}{2}$. The tests in the subtrees of distinct block children are independent, so a union bound on pairs gives
+\[
+ b_m^{(m)}\le r_m,\qquad
+ b_j^{(m)}\le r_j+C\bigl(b_{j+1}^{(m)}\bigr)^2\quad(j<m).
+\]
+Take $\delta=1/(2C)$ and choose $J$ so that $r_j\le\delta/2$ for $j\ge J$. Backward induction gives $b_j^{(m)}\le\delta$ for all $J\le j\le m$, since $C\delta^2=\delta/2$. On this range we may bound the quadratic term by $b_{j+1}^{(m)}/2$. Iterate the linear inequality and let $m\to\infty$, using the increasing failure events. With $b_j=\lim_m b_j^{(m)}$ this yields
+\begin{equation}\label{eq:sum}
+ b_j\le\sum_{h=j}^{\infty}2^{-(h-j)}r_h,
+ \qquad \sum_{j\ge J} b_j\le 2\sum_{j\ge J}r_j<\infty.
+\end{equation}
+
+\section{Connected continuations across shared faces}
+For a good cube $Q$, let $K_0(Q)=Q$. Let $K_h(Q)$ be the union of all closed block descendants at depth $h$ joined to $Q$ by a chain of good cubes. The $K_h(Q)$ are nested, nonempty and compact. We prove simultaneously that each $K_h(Q)$ is connected and that $K_h(Q)\cap K_h(Q')\ne\varnothing$ for good cubes at the same level that share a full face. Both assertions hold at depth zero.
+
+For the second assertion at depth $h+1$, the shared face has $L^{d-1}$ aligned pairs of block children. At most one pair is excluded by a bad child on each side, leaving at least $L^{d-1}-2\ge2$ pairs of good children. By the depth-$h$ assertion, the depth-$h$ sets inside an aligned good pair intersect. They are subsets of the two depth-$(h+1)$ sets.
+
+For the first assertion at depth $h+1$, the good block children form a face-connected grid. To see this when a vertex is deleted, choose a first-coordinate slice avoiding the deletion. Every remaining vertex can reach that slice along its first-coordinate column, stepping once in a second coordinate inside the grid if the missing vertex blocks the column. The slice itself is connected. Opposite good children sharing a face have intersecting $K_h$ sets by the depth-$h$ assertion, and all individual $K_h$ sets are connected. Their union is therefore connected.
+
+It follows that $K(Q)=\bigcap_{h\ge0}K_h(Q)$ is a nonempty compact connected set. Each of the two opposite outer slabs of the block grid in the first coordinate has a good child. The continuations inside those children are nonempty subsets of $K(Q)$, separated by at least $(1-2/L)\operatorname{side}(Q)>0$. Thus $K(Q)$ is nontrivial. If the original ancestors of $Q$ are marked, its good chains certify all marks at even block levels and the intervening odd levels. Every $K_h(Q)$ then lies in the original retained union at the corresponding block level, so $K(Q)\subset F$.
+
+\paragraph{A four-by-four example.}
+Take $N=d=2$. In two neighboring block squares, remove the last child in the left square's first row and the first child in the right square's second row. The two surviving alignments across their common side are shown as solid dots:
+\[
+\begin{array}{cccc|cccc}
+\circ&\circ&\circ&\times&\circ&\circ&\circ&\circ\\
+\circ&\circ&\circ&\circ&\times&\circ&\circ&\circ\\
+\circ&\circ&\circ&\bullet&\bullet&\circ&\circ&\circ\\
+\circ&\circ&\circ&\bullet&\bullet&\circ&\circ&\circ
+\end{array}
+\]
+Either aligned pair is eligible at the next block depth. Deleting on the same row leaves three pairs and deleting away from the common side leaves all four.
+
+\section{Coverage of almost every surviving point}
+Grid boundaries over all levels have volume zero. Away from them there is a unique level-$2j$ cube $Q_j(x)$ for each $x$. Let $B_j$ be the union of the bad cubes at that level. Its expected volume is $b_j$ since the cube interiors partition the unit cube up to a null set and each cube has the same bad probability. Equation~\eqref{eq:sum} and Tonelli's theorem give $\sum_{j\ge J}\lambda(B_j)<\infty$ almost surely. The first Borel--Cantelli lemma for Lebesgue measure gives that almost every $x$ eventually has only good $Q_j(x)$. The argument needs no independence along the chain of $x$.
+
+For such an $x\in F$ away from all boundaries, every ancestor is marked. Start at a good $Q_j(x)$ after the last bad level. Its descendants containing $x$ are all good, hence $x\in K(Q_j(x))\subset F$. The component of $x$ contains that nontrivial continuum. The dust is therefore contained in the union of the null grid boundaries and the null limsup of the $B_j$, proving the theorem.
+
+\newpage
+\section{Relation to earlier constructions}
+Falconer and Grimmett~\cite[pp.~482--484]{FG} use recursive good cubes and compatible neighboring refinements for crossings. Anttila, Eriksson-Bique and Py\"or\"al\"a~\cite[\S3.1 and Theorems~4.1, 5.1]{A} use a quadratic recurrence to construct nearly full block subtrees with uniformly positive existence probability in this same level-dependent percolation model. For a fixed grid of $M$ children, a subtree keeping exactly $M-1$ children at every node carries zero volume, since its level-$h$ volume is $(1-1/M)^h$ times the initial volume. Here we keep all good children and retain the actual local failure probabilities. The summable bound in~\eqref{eq:sum} yields coverage of almost every surviving point. Buczolich et al.~\cite[\S5]{U} use related hereditarily good cubes for a different purpose, unrectifiability in homogeneous fractal percolation. The theorem leaves open the organization of the connected components.
+
+\section*{Research disclosure}
+Under human direction, ChatGPT Astra 6.2 (OpenAI) generated the discovery proof and source packet. OpenAI Codex reviewed the mathematics and revised the manuscript. GPT-6.2 Sol checked primary literature and prepared the finite replay, visual and release files. DannyExperiments maintains the repository and is the preferred citation identity. No AI system is proposed as an author.
+
+\begin{thebibliography}{9}
+\raggedright
+\bibitem{B} E. I. Broman, T. van de Brug, F. Camia, M. Joosten, and R. Meester, Fat fractal percolation and $k$-fractal percolation, ALEA 9 (2012), 279--301. \href{https://alea.math.cnrs.fr/articles/v9/09-12.pdf}{Final article}.
+\bibitem{KT} I. Kolossv\'ary and S. Troscheit, Recent progress on fractal percolation, 2025. \href{https://arxiv.org/abs/2508.08150}{arXiv:2508.08150}.
+\bibitem{A} R. Anttila, S. Eriksson-Bique, and A. Py\"or\"al\"a, Quasisymmetric mappings on two variants of fractal percolation, 2025. \href{https://arxiv.org/abs/2510.06900}{arXiv:2510.06900}.
+\bibitem{FG} K. J. Falconer and G. R. Grimmett, On the geometry of random Cantor sets and fractal percolation, J. Theoret. Probab. 5 (1992), 465--485. \href{https://www.statslab.cam.ac.uk/~grg1000/papers/jtp5-465.pdf}{Article}.
+\bibitem{U} Z. Buczolich, E. J\"arvenp\"a\"a, M. J\"arvenp\"a\"a, T. Keleti, and T. P\"oyht\"ari, Fractal percolation is unrectifiable, Adv. Math. 390 (2021), 107906. \href{https://doi.org/10.1016/j.aim.2021.107906}{Journal record}.
+\end{thebibliography}
+\end{document}

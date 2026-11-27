@@ -1,0 +1,3 @@
+# Provenance
+
+The source is Open Problem 1.10 in Broman, van de Brug, Camia, Joosten and Meester's *Fat fractal percolation and k-fractal percolation*. The original proof is retained as [recovered construction](proof/recovered-construction.md). The revised manuscript incorporates precise source scope and the comparison with the earlier nearly full subtree method. [Original source](https://alea.math.cnrs.fr/articles/v9/09-12.pdf#page=5) · [Literature review](audits/public_safe_reports/LITERATURE.md) · [Research disclosure](AI_DISCLOSURE.md) · [Version DOI](https://doi.org/10.5281/zenodo.24574115).

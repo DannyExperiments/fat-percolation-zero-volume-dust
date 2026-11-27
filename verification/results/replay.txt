@@ -1,0 +1,5 @@
+Grid connectivity with zero or one missing child: 421 cases
+Face alignments with zero or one excluded pair per side: 18017 cases
+All 289 explorer selections, counts by surviving pair number: {2: 12, 3: 108, 4: 169}
+Exact finite-horizon probability checks: 9 (plus 64 geometric sums)
+Finite replay passed. The infinite-depth and almost-everywhere claims use the written proof.

@@ -1,0 +1,30 @@
+{
+  "title": "The dust in fat fractal percolation has zero volume",
+  "upload_type": "software",
+  "version": "1.0.0",
+  "publication_date": "2026-11-27",
+  "creators": [
+    {
+      "name": "DannyExperiments"
+    }
+  ],
+  "description": "In independent level-dependent N-adic fractal percolation with dimension at least two and positive product of the retention probabilities, the singleton components of the limit set have zero Lebesgue measure almost surely. The probabilities need no monotonicity.\n\nThe proof groups adjacent levels into block steps. A good cube passes a local mark test and has at most one bad block child. Pairing independent child failures gives a quadratic bound. Keeping the summable local defects in the recurrence makes the probabilities of bad cubes summable. Closed good descendants remain connected because aligned child pairs survive on every shared face. Almost every surviving point follows good cubes at all sufficiently deep block levels and belongs to the resulting nontrivial continuum.\n\nThis answers Open Problem 1.10 of Broman and coauthors, restated as Question 7.3 by Kolossváry and Troscheit. The proof builds on prior nearly full subtree and good-cube crossing techniques. The advance is almost-everywhere volume coverage using all good children. The result concerns singleton-component volume; connectivity of the entire set and the arrangement of its components are separate questions. Exact replay checks finite grid deletions, all explorer selections and rational probability bounds. External peer review is pending.\n\nUnder human direction, ChatGPT Astra 6.2 (OpenAI) generated the discovery proof and source packet. OpenAI Codex reviewed the mathematics and revised the manuscript. GPT-6.2 Sol checked primary literature and prepared the finite replay, visual and release files. DannyExperiments maintains the repository and is the preferred citation identity. No AI system is proposed as an author.",
+  "keywords": [
+    "fat fractal percolation",
+    "Mandelbrot percolation",
+    "connected components",
+    "Lebesgue measure",
+    "recursive subtrees",
+    "level-dependent retention"
+  ],
+  "access_right": "open",
+  "license": "other-closed",
+  "notes": "All rights reserved. Publicly downloadable files are supplied without a repository-wide reuse license.",
+  "related_identifiers": [
+    {
+      "identifier": "https://github.com/DannyExperiments/fat-percolation-zero-volume-dust/releases/tag/v1.0.0",
+      "relation": "isSupplementTo",
+      "resource_type": "software"
+    }
+  ]
+}
